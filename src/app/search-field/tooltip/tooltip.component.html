@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="tooltip"
+        *ngFor="let ticket of filteredTickets">
+        <button
+            id="btn-{{ticket.name}}">
+            <span *ngFor="let label of ticket.labels">
+                {{label}}
+            </span>
+    </button>
+    </div>
+</div>

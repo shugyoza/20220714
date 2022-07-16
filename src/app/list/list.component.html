@@ -1,0 +1,23 @@
+<div class="container">
+    <table>
+        <tr class="row">
+            <th class="name">Name</th>
+            <th class="labels">Labels</th>
+            <th class="status">Status</th>
+        </tr>
+        <tr class="row"
+            *ngFor="let ticket of tickets">
+            <td class="name">
+                {{ticket.name}}
+            </td>
+            <td class="labels">
+                <span *ngFor="let label of ticket.labels">
+                    {{label}}
+                </span>
+            </td>
+            <td class="status">
+            {{ticket.status}}
+            </td>
+        </tr>
+    </table>
+</div>

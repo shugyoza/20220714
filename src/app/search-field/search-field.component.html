@@ -1,0 +1,12 @@
+<div class="container">
+    {{searchField.dirty}}
+    <input
+        (keyup)="debounceTimeSearch()"
+        id="searchField"
+        type="text"
+        [formControl]="searchField" >
+    <app-tooltip
+        (click)="onSubmit()"
+        [hidden]="!searchField.dirty || !filteredTickets.length"
+        [filteredTickets]="filteredTickets"></app-tooltip>
+</div>
