@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { Ticket, tickets } from '../../model/ticket.model';
+import { APIService } from 'src/app/service/api.service';
+import { Ticket } from '../../model/ticket.model';
 
 @Component({
   selector: 'app-tooltip',
@@ -9,6 +10,13 @@ import { Ticket, tickets } from '../../model/ticket.model';
 export class TooltipComponent implements OnInit {
 
   @Input() filteredTickets: Ticket[] = [];
+
+  @Output() btnClick(event: any) {
+    const input = event.target.id;
+    this.api.tickets$.next(this.api.filterTickets(input, this.filteredTickets, []))
+  }
+
+  constructor(private api: APIService) { }
 
   ngOnInit() {}
 }

@@ -17,7 +17,7 @@ export class APIService {
   filterTickets(input: string, tickets: Ticket[], filtered: Ticket[] = []): Ticket[] {
     for (let ticket of tickets) {
       for (let label of ticket.labels) {
-        if (label.toLowerCase().startsWith(input.toLowerCase())) {
+        if (label.toLowerCase().includes(input.toLowerCase())) {
           filtered.push(ticket);
           break;
         }

@@ -3,7 +3,9 @@
         *ngFor="let ticket of filteredTickets">
         <button
             id="btn-{{ticket.name}}">
-            <span *ngFor="let label of ticket.labels">
+            <span *ngFor="let label of ticket.labels"
+                id="{{label}}"
+                (click)="btnClick($event)">
                 {{label}}
             </span>
     </button>
